@@ -24,6 +24,7 @@
                     <button id="btnCreateEdge" class="btn-opcion">Camino</button>
                     <button id="btnRoute" class="btn-opcion">Ruta</button>
 
+                    <!-- formulario para el punto -->
                     <form action="#" class="formVertices form">
                         <label for="positionVertice">Posición del punto en coordenadas (x,y) </label>
                         <div class="formRow">
@@ -37,9 +38,41 @@
                             <input type="submit" id="btnCrearV" value="Crear punto" class="btn"></input>
                         </div>
                     </form>
-                </div>
 
-                
+                    <!-- formulacio para el camino -->
+                    <form action="#" class="formEdges form">
+                        <label for="initialV">Punto inicial</label>
+                        <div class="divVerticeInicial">
+                            <select id="initialV"></select>
+                        </div>
+                        
+                        <label for="finalV">Punto final</label>
+                        <div class="divVerticeInicial">
+                            <select id="finalV"></select>
+                        </div>
+                            
+                        <div class="btnCrearCamino">
+                            <input type="submit" id="btnCrearE" value="Crear camino" class="btn"></input>
+                        </div>
+                    </form>
+                    
+                    <!-- formulacio para la ruta -->  
+                    <form action="#" class="formCalculate form">
+                        <label for="initialVC">Punto inicial</label>
+                        <div class="divVerticeInicial">
+                            <select id="initialVC"></select>
+                        </div>
+                        
+                        <label for="finalVC">Punto final</label>
+                        <div class="divVerticeInicial">
+                            <select id="finalVC"></select>
+                        </div>
+                        
+                        <div class="btnCrearRuta">
+                            <input type="submit" id="btnCalcRoute" value="Calcular ruta" class="btn"></input>
+                        </div>
+                    </form>
+                </div>
 
                 <!-- Sección 2: Cuadro de Visualización -->
                 <div class="divMapa">

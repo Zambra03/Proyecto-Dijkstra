@@ -17,16 +17,16 @@ $(document).ready(function () {
     $("#positionX").focus(); // Coloca el cursor en el campo X.
   });
 
-//   $("#btnCreateEdge").click(function () {
-//     clearForms();
-//     $(".formEdges").slideDown(300);
-//     $("#positionX").focus();
-//   });
+  $("#btnCreateEdge").click(function () {
+    clearForms();
+    $(".formEdges").slideDown(300);
+    $("#positionX").focus();
+  });
 
-//   $("#btnRoute").click(function () {
-//     clearForms();
-//     $(".formCalculate").slideDown(300);
-//   });
+  $("#btnRoute").click(function () {
+    clearForms();
+    $(".formCalculate").slideDown(300);
+  });
 
 //   $("#btnClear").click(function () {
 //     clearInformation();
