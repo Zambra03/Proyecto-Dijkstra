@@ -28,168 +28,168 @@ $(document).ready(function () {
     $(".formCalculate").slideDown(300);
   });
 
-//   $("#btnClear").click(function () {
-//     clearInformation();
-//   });
+  $("#btnClear").click(function () {
+    clearInformation();
+  });
 
-//   $("#btnCrearV").click(function (e) {
-//     e.preventDefault();
-//     let x = parseInt($("#positionX").val());
-//     let y = parseInt($("#positionY").val());
-//     let nameV = $("#nameVertice").val();
+  $("#btnCrearV").click(function (e) {
+    e.preventDefault();
+    let x = parseInt($("#positionX").val());
+    let y = parseInt($("#positionY").val());
+    let nameV = $("#nameVertice").val();
 
-//     if (
-//       x >= 0 &&
-//       y >= 0 &&
-//       x <= 100 &&
-//       y <= 100 &&
-//       nameV != "" &&
-//       x != null &&
-//       y != null &&
-//       nameV != null
-//     ) {
-//       let coordenada = [x, y];
-//       let existe = false;
-//       let queExiste = "";
+    if (
+      x >= 0 &&
+      y >= 0 &&
+      x <= 100 &&
+      y <= 100 &&
+      nameV != "" &&
+      x != null &&
+      y != null &&
+      nameV != null
+    ) {
+      let coordenada = [x, y];
+      let existe = false;
+      let queExiste = "";
 
-//       if (Object.keys(coordenadas).length > 0) {
-//         // Valida que las coordenadas no existan ya en el grafo.
-//         for (const vertice in coordenadas) {
-//           for (let i = 0; i < coordenadas[vertice].length; i++) {
-//             if (coordenadas[vertice][0] == x && coordenadas[vertice][1] == y) {
-//               existe = true;
-//               queExiste += `Ya existen las coordenadas (${x},${y}) | `;
-//               i = coordenadas[vertice].length;
-//             }
-//           }
-//         }
+      if (Object.keys(coordenadas).length > 0) {
+        // Valida que las coordenadas no existan ya en el grafo.
+        for (const vertice in coordenadas) {
+          for (let i = 0; i < coordenadas[vertice].length; i++) {
+            if (coordenadas[vertice][0] == x && coordenadas[vertice][1] == y) {
+              existe = true;
+              queExiste += `Ya existen las coordenadas (${x},${y}) | `;
+              i = coordenadas[vertice].length;
+            }
+          }
+        }
 
-//         // Valida que el nombre del vertice a ingresar no tenga el mismo nombre que alguno ya almacenado.
-//         if ([nameV] in grafo) {
-//           existe = true;
-//           queExiste += `Ya existe un vertice con el nombre ${nameV} | `;
-//         }
+        // Valida que el nombre del vertice a ingresar no tenga el mismo nombre que alguno ya almacenado.
+        if ([nameV] in grafo) {
+          existe = true;
+          queExiste += `Ya existe un vertice con el nombre ${nameV} | `;
+        }
 
-//         if (!existe) {
-//           coordenadas[nameV] = [x, y];
-//           grafo[nameV] = {};
-//           $(".form select option").each(function () {
-//             $(this).remove();
-//           });
-//           drawVertex(x, y, 7, nameV);
-//           fillSelects();
-//           clearFormData();
-//           $("#positionX").focus();
-//         } else {
-//           alert(queExiste);
-//         }
-//       } else {
-//         coordenadas[nameV] = [x, y];
-//         grafo[nameV] = {};
-//         $(".form select option").each(function () {
-//           $(this).remove();
-//         });
-//         drawVertex(x, y, 7, nameV);
-//         fillSelects();
-//         clearFormData();
-//         $("#positionX").focus();
-//       }
-//     } else {
-//       alert("Por favor introduce los datos.");
-//     }
-//   });
+        if (!existe) {
+          coordenadas[nameV] = [x, y];
+          grafo[nameV] = {};
+          $(".form select option").each(function () {
+            $(this).remove();
+          });
+          drawVertex(x, y, 7, nameV);
+          fillSelects();
+          clearFormData();
+          $("#positionX").focus();
+        } else {
+          alert(queExiste);
+        }
+      } else {
+        coordenadas[nameV] = [x, y];
+        grafo[nameV] = {};
+        $(".form select option").each(function () {
+          $(this).remove();
+        });
+        drawVertex(x, y, 7, nameV);
+        fillSelects();
+        clearFormData();
+        $("#positionX").focus();
+      }
+    } else {
+      alert("Por favor introduce los datos.");
+    }
+  });
 
-//   $("#btnCrearE").click(function (e) {
-//     e.preventDefault();
-//     let initialV = $("#initialV").val();
-//     let finalV = $("#finalV").val();
+  $("#btnCrearE").click(function (e) {
+    e.preventDefault();
+    let initialV = $("#initialV").val();
+    let finalV = $("#finalV").val();
 
-//     if (initialV != "" && finalV != "" && initialV != null && finalV != null) {
-//       if (initialV != finalV) {
-//         let x1 = coordenadas[initialV][0];
-//         let y1 = coordenadas[initialV][1];
-//         let x2 = coordenadas[finalV][0];
-//         let y2 = coordenadas[finalV][1];
-//         let peso = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-//         peso = Math.round(peso);
+    if (initialV != "" && finalV != "" && initialV != null && finalV != null) {
+      if (initialV != finalV) {
+        let x1 = coordenadas[initialV][0];
+        let y1 = coordenadas[initialV][1];
+        let x2 = coordenadas[finalV][0];
+        let y2 = coordenadas[finalV][1];
+        let peso = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        peso = Math.round(peso);
 
-//         if (aristas.length > 0) {
-//           let existe = false;
-//           let queExiste = `Ya existe una arista desde el vértice ${initialV} hasta el vértice ${finalV}.`;
+        if (aristas.length > 0) {
+          let existe = false;
+          let queExiste = `Ya existe una arista desde el vértice ${initialV} hasta el vértice ${finalV}.`;
 
-//           for (let i = 0; i < aristas.length; i++) {
-//             if (
-//               (aristas[i][0] == initialV && aristas[i][1] == finalV) ||
-//               (aristas[i][0] == finalV && aristas[i][1] == initialV)
-//             ) {
-//               existe = true;
-//               i = aristas.length;
-//             }
-//           }
+          for (let i = 0; i < aristas.length; i++) {
+            if (
+              (aristas[i][0] == initialV && aristas[i][1] == finalV) ||
+              (aristas[i][0] == finalV && aristas[i][1] == initialV)
+            ) {
+              existe = true;
+              i = aristas.length;
+            }
+          }
 
-//           if (!existe) {
-//             grafo[initialV][finalV] = peso;
-//             grafo[finalV][initialV] = peso;
-//             aristas.push([initialV, finalV]);
-//             aristas.push([finalV, initialV]);
-//             drawEdge(x1, y1, x2, y2, peso);
-//             clearFormData();
-//           } else {
-//             alert(queExiste);
-//           }
-//         } else {
-//           grafo[initialV][finalV] = peso;
-//           grafo[finalV][initialV] = peso;
-//           aristas.push([initialV, finalV]);
-//           aristas.push([finalV, initialV]);
-//           drawEdge(x1, y1, x2, y2, peso);
-//           clearFormData();
-//         }
-//       } else {
-//         alert(
-//           `No se puede conectar ${initialV} con ${finalV}, ya que son los mismos vértices. El sistema no lo acepta.`
-//         );
-//       }
-//     } else {
-//       alert("Por favor introduce los datos.");
-//     }
-//   });
+          if (!existe) {
+            grafo[initialV][finalV] = peso;
+            grafo[finalV][initialV] = peso;
+            aristas.push([initialV, finalV]);
+            aristas.push([finalV, initialV]);
+            drawEdge(x1, y1, x2, y2, peso);
+            clearFormData();
+          } else {
+            alert(queExiste);
+          }
+        } else {
+          grafo[initialV][finalV] = peso;
+          grafo[finalV][initialV] = peso;
+          aristas.push([initialV, finalV]);
+          aristas.push([finalV, initialV]);
+          drawEdge(x1, y1, x2, y2, peso);
+          clearFormData();
+        }
+      } else {
+        alert(
+          `No se puede conectar ${initialV} con ${finalV}, ya que son los mismos vértices. El sistema no lo acepta.`
+        );
+      }
+    } else {
+      alert("Por favor introduce los datos.");
+    }
+  });
 
-//   $("#btnCalcRoute").click(function (e) {
-//     e.preventDefault();
-//     let initialV = $("#initialVC").val();
-//     let finalV = $("#finalVC").val();
+  $("#btnCalcRoute").click(function (e) {
+    e.preventDefault();
+    let initialV = $("#initialVC").val();
+    let finalV = $("#finalVC").val();
 
-//     if (initialV != "" && finalV != "" && initialV != null && finalV != null) {
-//       if (initialV != finalV) {
-//         let dks = dijkstra(grafo, initialV, finalV);
-//         let distance = dks["distancia"];
-//         let route = dks["ruta"];
+    if (initialV != "" && finalV != "" && initialV != null && finalV != null) {
+      if (initialV != finalV) {
+        let dks = dijkstra(grafo, initialV, finalV);
+        let distance = dks["distancia"];
+        let route = dks["ruta"];
 
-//         for (let i = 0; i < route.length; i++) {
-//           if (i < route.length - 1) {
-//             drawEdge(
-//               coordenadas[route[i]][0],
-//               coordenadas[route[i]][1],
-//               coordenadas[route[i + 1]][0],
-//               coordenadas[route[i + 1]][1],
-//               null,
-//               600,
-//               true
-//             );
-//             $("#distance").html(
-//               `<strong>Peso total:</strong> ${distance}<br><strong>Ruta:</strong> (${route})`
-//             );
-//             $("#distance").slideDown(300);
-//           }
-//         }
-//       } else {
-//         alert("¡Ya estás en tu destino!");
-//       }
-//     } else {
-//       alert("Por favor introduce los datos.");
-//     }
-//   });
+        for (let i = 0; i < route.length; i++) {
+          if (i < route.length - 1) {
+            drawEdge(
+              coordenadas[route[i]][0],
+              coordenadas[route[i]][1],
+              coordenadas[route[i + 1]][0],
+              coordenadas[route[i + 1]][1],
+              null,
+              600,
+              true
+            );
+            $("#distance").html(
+              `<strong>Peso total:</strong> ${distance}<br><strong>Ruta:</strong> (${route})`
+            );
+            $("#distance").slideDown(300);
+          }
+        }
+      } else {
+        alert("¡Ya estás en tu destino!");
+      }
+    } else {
+      alert("Por favor introduce los datos.");
+    }
+  });
 });
 
 function sizeCanvas(size = 600) {

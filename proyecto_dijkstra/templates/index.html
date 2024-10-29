@@ -82,7 +82,7 @@
             
             <!-- Sección 3: Botones de Acción -->
             <div class="seccion-acciones">
-                <button class="btn-accion limpiar">LIMPIAR</button>
+                <button id="btnClear" class="btn-accion limpiar">LIMPIAR</button>
                 <button class="btn-accion guardar">GUARDAR</button>
                 <button class="btn-accion historial">HISTORIAL</button>
             </div>
@@ -99,6 +99,7 @@
             crossorigin="anonymous"></script>
         <!-- Referencia al archivo JavaScript -->
         <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+        <script src="{% static 'js/Dijkstra.js' %}"></script>
         <script src="{% static 'js/main.js' %}"></script>
         
 </html>
