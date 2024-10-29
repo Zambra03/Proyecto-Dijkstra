@@ -1,0 +1,11 @@
+{
+  "builds": [
+    { "src": "proyecto_dijkstra/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9"} }
+  ],
+  "routes": [
+    { "src": "/(.*)", 
+    "dest": "proyecto_dijkstra/wsgi.py" }
+  ]
+}
